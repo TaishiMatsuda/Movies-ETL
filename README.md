@@ -15,7 +15,7 @@ We assume that each files will always contain the columns of interest and those 
 
 For example, in the process to clean the Kaggle Movie Meta Data, we are assuming that columns 'adult', 'video', 'budget', 'id', 'popularity','release_date' to exist.
 
-```Python
+```python
 # Cleaning Movie Meta (Kaggle) Data
 # Removing Movies rated Adult
 kaggle_metadata = kaggle_metadata[kaggle_metadata['adult'] == 'False'].drop('adult',axis='columns')
@@ -33,7 +33,7 @@ In case of missing the important columns such as 'id','budget' and 'release_date
 
 However, for columns like 'adult' or 'video' that are not important for the analysis, we can use the following `try-except` blocks to continue the ETL process.
 
-```Python
+```python
 try:
     kaggle_metadata = kaggle_metadata[kaggle_metadata['adult'] == 'False'].drop('adult',axis='columns')
 except KeyError:
@@ -44,7 +44,7 @@ except KeyError:
 #### 3. No New (Important) Column(s) to be Added
 The code below is used to reorder the cleaned DataFrame (movies_df).
 
-```Python
+```python
 # Reordering Columns
 movies_df = movies_df[['imdb_id','id','title_kaggle','original_title','tagline','belongs_to_collection','url','imdb_link',
                        'runtime','budget_kaggle','revenue','release_date_kaggle','popularity','vote_average','vote_count',
